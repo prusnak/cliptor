@@ -1,0 +1,7 @@
+<RCC>
+  <qresource>
+    <file>icons/about.png</file>
+    <file>icons/exit.png</file>
+    <file>icons/cliptor.png</file>
+  </qresource>
+</RCC>
