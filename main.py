@@ -14,8 +14,8 @@ class MainWindow(QtGui.QMainWindow):
 
     def doAbout(self):
         box = QtGui.QMessageBox()
-        box.setStandardButtons(QtGui.QMessageBox.Ok);
-        box.setIconPixmap( QtGui.QPixmap( ":/icons/cliptor.png" ) );
+        box.setStandardButtons(QtGui.QMessageBox.Ok)
+        box.setIconPixmap( QtGui.QPixmap( ":/icons/cliptor.png" ) )
         box.setText( u"Cliptor\n\nCopyright (c) 2009\n\nPavol Rusnák" )
-        box.setWindowTitle("About Cliptor");
+        box.setWindowTitle("About Cliptor")
         box.exec_()
