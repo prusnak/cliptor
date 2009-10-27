@@ -62,7 +62,7 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QListView" name="listA">
+   <widget class="QListWidget" name="listA">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -77,7 +77,7 @@
      <rect>
       <x>40</x>
       <y>290</y>
-      <width>61</width>
+      <width>51</width>
       <height>41</height>
      </rect>
     </property>
@@ -116,26 +116,17 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="editSearch">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>380</y>
-      <width>541</width>
-      <height>41</height>
-     </rect>
+    <property name="invertedControls">
+     <bool>true</bool>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>18</pointsize>
-     </font>
+    <property name="tickPosition">
+     <enum>QSlider::NoTicks</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonSearch">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>730</x>
       <y>380</y>
       <width>111</width>
       <height>41</height>
@@ -154,9 +145,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
+      <y>290</y>
       <width>21</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="maximum">
@@ -166,7 +157,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QListView" name="listB">
+   <widget class="QListWidget" name="listB">
     <property name="geometry">
      <rect>
       <x>840</x>
@@ -180,9 +171,9 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>10</y>
+      <y>0</y>
       <width>321</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -201,9 +192,9 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>10</y>
+      <y>0</y>
       <width>321</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -222,9 +213,9 @@
     <property name="geometry">
      <rect>
       <x>982</x>
-      <y>280</y>
+      <y>290</y>
       <width>21</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="maximum">
@@ -250,9 +241,9 @@
    <widget class="QPushButton" name="buttonCueB">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>920</x>
       <y>290</y>
-      <width>61</width>
+      <width>51</width>
       <height>41</height>
      </rect>
     </property>
@@ -274,6 +265,9 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="invertedControls">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelPosA1">
@@ -320,6 +314,9 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="invertedControls">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="labelPosB2">
     <property name="geometry">
@@ -350,7 +347,7 @@
      <string>00:00</string>
     </property>
    </widget>
-   <widget class="QTableView" name="tableResults">
+   <widget class="QTableWidget" name="tableResults">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -396,11 +393,14 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="invertedControls">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="labelPosA1_2">
+   <widget class="QLabel" name="labelBPMA">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>180</x>
       <y>340</y>
       <width>61</width>
       <height>21</height>
@@ -428,11 +428,14 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="invertedControls">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="labelPosA1_3">
+   <widget class="QLabel" name="labelBPMB">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>770</x>
       <y>340</y>
       <width>61</width>
       <height>21</height>
@@ -445,6 +448,31 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
+   <widget class="QLineEdit" name="editSearch">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>380</y>
+      <width>541</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listSearch">
+    <property name="geometry">
+     <rect>
+      <x>185</x>
+      <y>421</y>
+      <width>531</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -452,14 +480,14 @@
      <x>0</x>
      <y>0</y>
      <width>1010</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionExit"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -480,13 +508,13 @@
     <string>&amp;About</string>
    </property>
   </action>
-  <action name="actionExit">
+  <action name="actionQuit">
    <property name="icon">
     <iconset resource="main.qrc">
      <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
    </property>
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
  </widget>

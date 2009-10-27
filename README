@@ -1,1 +1,7 @@
 Cliptor
+-------
+
+Requirements:
+
+* PyQt4      (package python-qt4-devel)
+* Python XML (package python-xml)
