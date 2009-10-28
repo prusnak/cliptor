@@ -82,7 +82,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Cue</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="main.qrc">
+      <normaloff>:/icons/cue-set.png</normaloff>:/icons/cue-set.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>22</width>
+      <height>22</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonPlayA">
@@ -95,7 +105,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Play</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="main.qrc">
+      <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>22</width>
+      <height>22</height>
+     </size>
     </property>
    </widget>
    <widget class="QSlider" name="slideCrossfade">
@@ -235,7 +255,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Play</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="main.qrc">
+      <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>22</width>
+      <height>22</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonCueB">
@@ -248,7 +278,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Cue</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="main.qrc">
+      <normaloff>:/icons/cue-set.png</normaloff>:/icons/cue-set.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>22</width>
+      <height>22</height>
+     </size>
     </property>
    </widget>
    <widget class="QSlider" name="slidePosA">
@@ -356,6 +396,51 @@
       <height>261</height>
      </rect>
     </property>
+    <column>
+     <property name="text">
+      <string>vid</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>author</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>published</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>title</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>desc</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>length</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>rating</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>views</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>thumbs</string>
+     </property>
+    </column>
    </widget>
    <widget class="QPushButton" name="buttonRecommend">
     <property name="geometry">
@@ -502,7 +587,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="main.qrc">
-     <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
+     <normaloff>:/icons/cliptor16.png</normaloff>:/icons/cliptor16.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About</string>
@@ -518,6 +603,26 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>editSearch</tabstop>
+  <tabstop>listSearch</tabstop>
+  <tabstop>buttonSearch</tabstop>
+  <tabstop>buttonRecommend</tabstop>
+  <tabstop>tableResults</tabstop>
+  <tabstop>listA</tabstop>
+  <tabstop>listB</tabstop>
+  <tabstop>slideVolumeA</tabstop>
+  <tabstop>buttonCueA</tabstop>
+  <tabstop>buttonPlayA</tabstop>
+  <tabstop>slidePosA</tabstop>
+  <tabstop>slideBPMA</tabstop>
+  <tabstop>slidePosB</tabstop>
+  <tabstop>buttonPlayB</tabstop>
+  <tabstop>buttonCueB</tabstop>
+  <tabstop>slideVolumeB</tabstop>
+  <tabstop>slideCrossfadeBPMB</tabstop>
+  <tabstop>slideCrossfade</tabstop>
+ </tabstops>
  <resources>
   <include location="main.qrc"/>
  </resources>

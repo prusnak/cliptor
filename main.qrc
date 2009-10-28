@@ -1,7 +1,11 @@
 <RCC>
   <qresource>
-    <file>icons/about.png</file>
-    <file>icons/exit.png</file>
     <file>icons/cliptor.png</file>
+    <file>icons/cliptor16.png</file>
+    <file>icons/cue-go.png</file>
+    <file>icons/cue-set.png</file>
+    <file>icons/exit.png</file>
+    <file>icons/pause.png</file>
+    <file>icons/play.png</file>
   </qresource>
 </RCC>
