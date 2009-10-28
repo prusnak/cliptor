@@ -387,7 +387,7 @@
      <string>00:00</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableResults">
+   <widget class="QListWidget" name="listResults">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -396,51 +396,6 @@
       <height>261</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string>vid</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>author</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>published</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>title</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>desc</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>length</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>rating</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>views</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>thumbs</string>
-     </property>
-    </column>
    </widget>
    <widget class="QPushButton" name="buttonRecommend">
     <property name="geometry">
@@ -608,7 +563,7 @@
   <tabstop>listSearch</tabstop>
   <tabstop>buttonSearch</tabstop>
   <tabstop>buttonRecommend</tabstop>
-  <tabstop>tableResults</tabstop>
+  <tabstop>listResults</tabstop>
   <tabstop>listA</tabstop>
   <tabstop>listB</tabstop>
   <tabstop>slideVolumeA</tabstop>

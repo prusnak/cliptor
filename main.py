@@ -2,6 +2,7 @@
 
 from PyQt4 import QtCore, QtGui
 from ui_main import Ui_MainWindow
+from result import WidgetResult
 from utils import Utils
 
 class MainWindow(QtGui.QMainWindow):
@@ -49,9 +50,10 @@ class MainWindow(QtGui.QMainWindow):
             return
         self.ui.listSearch.setVisible(False)
         self.ui.listSearch.clear()
-        self.ui.tableResults.clear()
+        self.ui.listResults.clear()
         for vid in Utils.getVideos(s):
             print vid
+            self.ui.listResults.addItem(vid['title'])
 
     def buttonPlayA_clicked(self):
         self.playingA = not self.playingA

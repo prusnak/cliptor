@@ -7,5 +7,7 @@
     <file>icons/exit.png</file>
     <file>icons/pause.png</file>
     <file>icons/play.png</file>
+    <file>icons/rating0.png</file>
+    <file>icons/rating1.png</file>
   </qresource>
 </RCC>
