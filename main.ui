@@ -387,16 +387,6 @@
      <string>00:00</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listResults">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>431</y>
-      <width>991</width>
-      <height>261</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="buttonRecommend">
     <property name="geometry">
      <rect>
@@ -513,6 +503,60 @@
      </rect>
     </property>
    </widget>
+   <widget class="QScrollArea" name="scrollResult">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>430</y>
+      <width>991</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <widget class="QWidget" name="scrollResultContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>968</width>
+       <height>265</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frameA</zorder>
+   <zorder>frameB</zorder>
+   <zorder>listA</zorder>
+   <zorder>buttonCueA</zorder>
+   <zorder>buttonPlayA</zorder>
+   <zorder>slideCrossfade</zorder>
+   <zorder>buttonSearch</zorder>
+   <zorder>slideVolumeA</zorder>
+   <zorder>listB</zorder>
+   <zorder>labelDeckA</zorder>
+   <zorder>labelDeckB</zorder>
+   <zorder>slideVolumeB</zorder>
+   <zorder>buttonPlayB</zorder>
+   <zorder>buttonCueB</zorder>
+   <zorder>slidePosA</zorder>
+   <zorder>labelPosA1</zorder>
+   <zorder>labelPosA2</zorder>
+   <zorder>slidePosB</zorder>
+   <zorder>labelPosB2</zorder>
+   <zorder>labelPosB1</zorder>
+   <zorder>buttonRecommend</zorder>
+   <zorder>slideBPMA</zorder>
+   <zorder>labelBPMA</zorder>
+   <zorder>slideCrossfadeBPMB</zorder>
+   <zorder>labelBPMB</zorder>
+   <zorder>editSearch</zorder>
+   <zorder>scrollResult</zorder>
+   <zorder>listSearch</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -520,7 +564,7 @@
      <x>0</x>
      <y>0</y>
      <width>1010</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -563,7 +607,6 @@
   <tabstop>listSearch</tabstop>
   <tabstop>buttonSearch</tabstop>
   <tabstop>buttonRecommend</tabstop>
-  <tabstop>listResults</tabstop>
   <tabstop>listA</tabstop>
   <tabstop>listB</tabstop>
   <tabstop>slideVolumeA</tabstop>

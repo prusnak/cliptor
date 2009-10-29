@@ -22,7 +22,7 @@ class Utils():
 
     @staticmethod
     def getVideos(s):
-        params = urllib.urlencode({'max-results': 30, 'q': s})
+        params = urllib.urlencode({'max-results': 10, 'q': s})
         url = urllib.urlopen( 'http://gdata.youtube.com/feeds/api/videos?%s' % params )
         xml = url.read()
         url.close()

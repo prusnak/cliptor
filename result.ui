@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>970</width>
+    <width>960</width>
     <height>110</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>951</width>
+     <width>941</width>
      <height>92</height>
     </rect>
    </property>
@@ -90,6 +90,22 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="layoutH">
+        <item>
+         <widget class="QLabel" name="labelLength">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>00:00</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QLabel" name="imageRating">
           <property name="sizePolicy">
@@ -205,6 +221,19 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>-40</x>
+     <y>100</y>
+     <width>1040</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
   </widget>
  </widget>
  <resources>

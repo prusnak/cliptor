@@ -5,6 +5,7 @@ from ui_main import Ui_MainWindow
 from result import WidgetResult
 from utils import Utils
 
+
 class MainWindow(QtGui.QMainWindow):
 
     playingA = False
@@ -15,6 +16,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.listSearch.setVisible(False)
+        self.ui.scrollResult.setVisible(False)
         self.connect(self.ui.actionAbout  , QtCore.SIGNAL('triggered()')                      , self.actionAbout_triggered    )
         self.connect(self.ui.actionQuit   , QtCore.SIGNAL('triggered()')                      , QtCore.SLOT('close()')        )
         self.connect(self.ui.editSearch   , QtCore.SIGNAL('textChanged(QString)')             , self.editSearch_textChanged   )
@@ -39,6 +41,7 @@ class MainWindow(QtGui.QMainWindow):
         self.buttonSearch_clicked()
 
     def editSearch_textChanged(self, s):
+        self.ui.scrollResult.setVisible(False)
         self.ui.listSearch.setVisible( s != '' )
         self.ui.listSearch.clear()
         for i in Utils.getSuggestions(s):
@@ -50,10 +53,19 @@ class MainWindow(QtGui.QMainWindow):
             return
         self.ui.listSearch.setVisible(False)
         self.ui.listSearch.clear()
-        self.ui.listResults.clear()
+        i = 0
+        h = 0
+        w = 0
         for vid in Utils.getVideos(s):
-            print vid
-            self.ui.listResults.addItem(vid['title'])
+            wgt = WidgetResult(self.ui.scrollResultContents)
+            wgt.setGeometry(QtCore.QRect(0, i * wgt.height(), wgt.width(), wgt.height()));
+            wgt.setObjectName( "result" + str(i) )
+            wgt.setData(vid)
+            i = i + 1
+            w = wgt.width()
+            h += wgt.height()
+        self.ui.scrollResultContents.setGeometry(QtCore.QRect(0,0,w,h))
+        self.ui.scrollResult.setVisible(True)
 
     def buttonPlayA_clicked(self):
         self.playingA = not self.playingA
