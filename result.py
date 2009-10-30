@@ -33,8 +33,17 @@ class WidgetResult(QtGui.QWidget):
         self.ui.labelPublished.setText( delta )
         self.ui.labelTitle.setText( data['title'] )
         self.ui.labelDesc.setText( data['desc'] )
-        self.ui.labelLength.setText( "%d:%d" % (data['length'] / 60, data['length'] % 60) )
-        self.ui.labelViews.setText( str(data['views']) + ' views' )
+        self.ui.labelLength.setText( "%d:%02d" % (data['length'] / 60, data['length'] % 60) )
+        views = data['views']
+        if views > 1000000000:
+            views = "%d.%03d.%03d.%03d" % ( views / 1000000000 , views / 1000000 % 1000, views / 1000 % 1000, views % 1000)
+        elif views > 1000000:
+            views = "%d.%03d.%03d" % ( views / 1000000 , views / 1000 % 1000, views % 1000)
+        elif views > 1000:
+            views = "%d.%03d" % ( views / 1000, views % 1000)
+        else:
+            views = "%d" % views
+        self.ui.labelViews.setText( views + ' views' )
         ratingwidth = int( data['rating'] * 16)
         rate0 = QtGui.QPixmap(':icons/rating0.png')
         rate1 = QtGui.QPixmap(':icons/rating1.png')
@@ -42,7 +51,7 @@ class WidgetResult(QtGui.QWidget):
         rating.fill(QtCore.Qt.transparent)
         painter = QtGui.QPainter()
         painter.begin(rating)
-        painter.drawPixmap(0,0,rate1,0,0,ratingwidth-1,16)
+        painter.drawPixmap(0,0,rate1,0,0,ratingwidth,16)
         painter.drawPixmap(ratingwidth,0,rate0,ratingwidth,0,80-ratingwidth,16)
         painter.end()
         self.ui.imageRating.setPixmap(rating)

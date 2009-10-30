@@ -34,7 +34,6 @@ class Utils():
     def getVideos(s):
         params = urllib.urlencode({'max-results': 20, 'q': s})
         url = urllib.urlopen( 'http://gdata.youtube.com/feeds/api/videos?%s' % params )
-        print 'http://gdata.youtube.com/feeds/api/videos?%s' % params
         xml = url.read()
         url.close()
         dom = minidom.parseString(xml)
@@ -54,7 +53,10 @@ class Utils():
                 rating = float(node.getElementsByTagName('gd:rating')[0].attributes['average'].value)
             else:
                 rating = 0.0
-            views = int(node.getElementsByTagName('yt:statistics')[0].attributes['viewCount'].value)
+            if len(node.getElementsByTagName('yt:statistics')) > 0:
+                views = int(node.getElementsByTagName('yt:statistics')[0].attributes['viewCount'].value)
+            else:
+                views = 0
             result.append({
                 'vid': vid,
                 'author': author,
