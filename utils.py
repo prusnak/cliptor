@@ -12,6 +12,13 @@ try:
 except:
     pass
 
+quality = [
+    'small',      # <  640 x 360
+    'medium',     # >= 640 x 360
+    'large',      # >= 854 x 480
+    'hd720'       # >= 1280 x 720
+]
+
 class Utils():
 
     @staticmethod
@@ -66,7 +73,7 @@ class Utils():
                 'length': length,
                 'rating': rating,
                 'views': views,
-                'thumbs': [ (thumbdir +'%s_%d.jpg') % (vid, i) for i in range(1,2) ]
+                'thumbs': [ (thumbdir +'%s_%d.jpg') % (vid, i) for i in range(1,4) ]
             })
             for i in range(1,2):
                 if not os.path.exists( (thumbdir +'%s_%d.jpg') % (vid, i) ):

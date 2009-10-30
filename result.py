@@ -11,9 +11,19 @@ class WidgetResult(QtGui.QWidget):
         self.ui = Ui_widgetResult()
         self.ui.setupUi(self)
         self.vid = None
+        self.title = None
+        self.connect(self.ui.buttonA, QtCore.SIGNAL('clicked()'), self.buttonA_clicked )
+        self.connect(self.ui.buttonB, QtCore.SIGNAL('clicked()'), self.buttonB_clicked )
+
+    def buttonA_clicked(self):
+        print 'A <- %s : %s' % ( self.vid, self.title )
+
+    def buttonB_clicked(self):
+        print 'B <- %s : %s' % ( self.vid, self.title )
 
     def setData(self, data):
         self.vid = data['vid']
+        self.title = data['title']
         self.ui.labelAuthor.setText( data['author'] )
         delta = datetime.now() - data['published']
         if delta.days >= 365*2:
