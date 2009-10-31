@@ -30,45 +30,39 @@
     <normaloff>:/icons/cliptor.png</normaloff>:/icons/cliptor.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frameA">
+   <widget class="QLabel" name="frameA">
     <property name="geometry">
      <rect>
-      <x>254</x>
-      <y>19</y>
-      <width>241</width>
-      <height>181</height>
+      <x>255</x>
+      <y>20</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+    <property name="pixmap">
+     <pixmap resource="main.qrc">:/icons/ntsc.png</pixmap>
     </property>
    </widget>
-   <widget class="QFrame" name="frameB">
+   <widget class="QLabel" name="frameB">
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>510</x>
       <y>20</y>
-      <width>241</width>
-      <height>181</height>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+    <property name="pixmap">
+     <pixmap resource="main.qrc">:/icons/ntsc.png</pixmap>
     </property>
    </widget>
    <widget class="QListWidget" name="listA">
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>19</y>
-      <width>241</width>
-      <height>181</height>
+      <y>20</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
    </widget>
@@ -180,20 +174,20 @@
    <widget class="QListWidget" name="listB">
     <property name="geometry">
      <rect>
-      <x>745</x>
-      <y>19</y>
-      <width>251</width>
-      <height>181</height>
+      <x>755</x>
+      <y>20</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="labelDeckA">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>255</x>
       <y>0</y>
-      <width>321</width>
-      <height>16</height>
+      <width>240</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -214,8 +208,8 @@
      <rect>
       <x>510</x>
       <y>0</y>
-      <width>321</width>
-      <height>16</height>
+      <width>240</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -556,7 +550,7 @@
      <x>0</x>
      <y>0</y>
      <width>1010</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

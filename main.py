@@ -5,7 +5,6 @@ from ui_main import Ui_MainWindow
 from result import WidgetResult
 from utils import Utils
 
-
 class MainWindow(QtGui.QMainWindow):
 
     playingA = False
