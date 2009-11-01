@@ -22,6 +22,11 @@ class WidgetResult(QtGui.QWidget):
         print 'B <- %s : %s' % ( self.vid, self.title )
 
     def setData(self, data):
+        if data == None:
+            self.setVisible(False)
+            return
+        else:
+            self.setVisible(True)
         self.vid = data['vid']
         self.title = data['title']
         self.ui.labelAuthor.setText( data['author'] )

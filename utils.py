@@ -4,13 +4,9 @@ from xml.dom import minidom
 from PyQt4 import QtGui
 from datetime import datetime
 
-confdir = os.getenv('HOME') + '/.cliptor/'
-thumbdir = confdir + 'thumbnails/'
-try:
-    os.makedirs(confdir)
-    os.makedirs(thumbdir)
-except:
-    pass
+CONFDIR = os.getenv('HOME') + '/.cliptor/'
+THUMBDIR = CONFDIR + 'thumbnails/'
+SEARCHRESULTS = 20
 
 quality = [
     'small',      # <  640 x 360
@@ -18,6 +14,12 @@ quality = [
     'large',      # >= 854 x 480
     'hd720'       # >= 1280 x 720
 ]
+
+try:
+    os.makedirs(CONFDIR)
+    os.makedirs(THUMBDIR)
+except:
+    pass
 
 class Utils():
 
@@ -39,7 +41,7 @@ class Utils():
 
     @staticmethod
     def getVideos(s):
-        params = urllib.urlencode({'max-results': 20, 'q': s})
+        params = urllib.urlencode({'max-results': SEARCHRESULTS, 'q': s})
         url = urllib.urlopen( 'http://gdata.youtube.com/feeds/api/videos?%s' % params )
         xml = url.read()
         url.close()
@@ -73,11 +75,11 @@ class Utils():
                 'length': length,
                 'rating': rating,
                 'views': views,
-                'thumbs': [ (thumbdir +'%s_%d.jpg') % (vid, i) for i in range(1,4) ]
+                'thumbs': [ (THUMBDIR +'%s_%d.jpg') % (vid, i) for i in range(1,4) ]
             })
             for i in range(1,2):
-                if not os.path.exists( (thumbdir +'%s_%d.jpg') % (vid, i) ):
-                    urllib.urlretrieve('http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i), (thumbdir +'%s_%d.jpg') % (vid, i) )
+                if not os.path.exists( (THUMBDIR +'%s_%d.jpg') % (vid, i) ):
+                    urllib.urlretrieve('http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i), (THUMBDIR +'%s_%d.jpg') % (vid, i) )
         return result
 
     @staticmethod

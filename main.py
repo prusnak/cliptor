@@ -3,12 +3,13 @@
 from PyQt4 import QtCore, QtGui
 from ui_main import Ui_MainWindow
 from result import WidgetResult
-from utils import Utils
+from utils import Utils, SEARCHRESULTS
 
 class MainWindow(QtGui.QMainWindow):
 
     playingA = False
     playingB = False
+    resultWidgets = []
 
     def __init__(self, parent = None):
         QtGui.QWidget.__init__(self, parent)
@@ -26,6 +27,10 @@ class MainWindow(QtGui.QMainWindow):
         self.connect(self.ui.buttonPlayB  , QtCore.SIGNAL('clicked()')                        , self.buttonPlayB_clicked      )
         self.connect(self.ui.buttonCueA   , QtCore.SIGNAL('clicked()')                        , self.buttonCueA_clicked       )
         self.connect(self.ui.buttonCueB   , QtCore.SIGNAL('clicked()')                        , self.buttonCueB_clicked       )
+        for i in range(0, SEARCHRESULTS):
+            self.resultWidgets.append( WidgetResult(self.ui.scrollResultContents) )
+            self.resultWidgets[i].setGeometry(QtCore.QRect(0, i * self.resultWidgets[i].height(), self.resultWidgets[i].width(), self.resultWidgets[i].height()));
+            self.resultWidgets[i].setObjectName( "result" + str(i) )
 
     def actionAbout_triggered(self):
         box = QtGui.QMessageBox()
@@ -52,18 +57,13 @@ class MainWindow(QtGui.QMainWindow):
             return
         self.ui.listSearch.setVisible(False)
         self.ui.listSearch.clear()
-        i = 0
-        h = 0
-        w = 0
-        for vid in Utils.getVideos(s):
-            wgt = WidgetResult(self.ui.scrollResultContents)
-            wgt.setGeometry(QtCore.QRect(0, i * wgt.height(), wgt.width(), wgt.height()));
-            wgt.setObjectName( "result" + str(i) )
-            wgt.setData(vid)
-            i = i + 1
-            w = wgt.width()
-            h += wgt.height()
-        self.ui.scrollResultContents.setGeometry(QtCore.QRect(0,0,w,h))
+        vids = Utils.getVideos(s)
+        for i in range(0, SEARCHRESULTS):
+            if i < len(vids):
+                self.resultWidgets[i].setData(vids[i])
+            else:
+                self.resultWidgets[i].setData(None)
+        self.ui.scrollResultContents.setGeometry(QtCore.QRect(0,0,self.resultWidgets[0].width(),self.resultWidgets[0].height()*len(vids)))
         self.ui.scrollResult.setVisible(True)
 
     def buttonPlayA_clicked(self):
