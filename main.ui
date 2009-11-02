@@ -75,8 +75,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#buttonCueA { padding: 4px; } </string>
+    </property>
     <property name="text">
-     <string/>
+     <string>Cue</string>
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
@@ -84,7 +87,7 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>22</width>
+      <width>5</width>
       <height>22</height>
      </size>
     </property>
@@ -250,9 +253,6 @@
       <height>41</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
     <property name="icon">
      <iconset resource="main.qrc">
       <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
@@ -273,8 +273,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#buttonCueB { padding: 4px; } </string>
+    </property>
     <property name="text">
-     <string/>
+     <string>Cue</string>
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
@@ -282,7 +285,7 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>22</width>
+      <width>5</width>
       <height>22</height>
      </size>
     </property>

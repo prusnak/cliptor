@@ -1,11 +1,25 @@
+import sys
 import os
 import urllib
 from xml.dom import minidom
 from PyQt4 import QtGui
 from datetime import datetime
 
-CONFDIR = os.getenv('HOME') + '/.cliptor/'
-THUMBDIR = CONFDIR + 'thumbnails/'
+HOMEDIR = os.getenv('HOME')
+if HOMEDIR == None:
+    print >> sys.stderr, 'Your $HOME is empty'
+    sys.exit(1)
+CONFDIR = os.getenv('XDG_CONFIG_HOME')
+CACHEDIR = os.getenv('XDG_CACHE_HOME')
+if CONFDIR == None:
+    CONFDIR = HOMEDIR + '/.config'
+if CACHEDIR == None:
+    CACHEDIR = HOMEDIR + '/.cache'
+
+CONFDIR = CONFDIR + '/cliptor/'
+CACHEDIR = CACHEDIR + '/cliptor/'
+
+THUMBDIR = CACHEDIR + 'thumbnails/'
 SEARCHRESULTS = 20
 
 quality = [
@@ -16,6 +30,7 @@ quality = [
 ]
 
 try:
+    print CONFDIR, CACHEDIR, THUMBDIR
     os.makedirs(CONFDIR)
     os.makedirs(THUMBDIR)
 except:
@@ -26,9 +41,11 @@ class Utils():
     @staticmethod
     def getSuggestions(s):
         params = urllib.urlencode({'ds': 'yt', 'output': 'toolbar', 'q': s})
-        url = urllib.urlopen( 'http://suggestqueries.google.com/complete/search?%s' % params )
-        xml = url.read()
-        url.close()
+        url = 'http://suggestqueries.google.com/complete/search?%s' % params
+        print 'GET %s' % url
+        sock = urllib.urlopen( url )
+        xml = sock.read()
+        sock.close()
         dom = minidom.parseString(xml)
         result = []
         for node in dom.firstChild.childNodes:
@@ -42,9 +59,11 @@ class Utils():
     @staticmethod
     def getVideos(s):
         params = urllib.urlencode({'max-results': SEARCHRESULTS, 'q': s})
-        url = urllib.urlopen( 'http://gdata.youtube.com/feeds/api/videos?%s' % params )
-        xml = url.read()
-        url.close()
+        url = 'http://gdata.youtube.com/feeds/api/videos?%s' % params
+        print 'GET %s' % url
+        sock = urllib.urlopen( url )
+        xml = sock.read()
+        sock.close()
         dom = minidom.parseString(xml)
         result = []
         for node in dom.getElementsByTagName('entry'):
@@ -78,8 +97,11 @@ class Utils():
                 'thumbs': [ (THUMBDIR +'%s_%d.jpg') % (vid, i) for i in range(1,4) ]
             })
             for i in range(1,2):
-                if not os.path.exists( (THUMBDIR +'%s_%d.jpg') % (vid, i) ):
-                    urllib.urlretrieve('http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i), (THUMBDIR +'%s_%d.jpg') % (vid, i) )
+                url = 'http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i)
+                dest = (THUMBDIR +'%s_%d.jpg') % (vid, i)
+                if not os.path.exists( dest ):
+                    print 'GET %s -> %s' % (url, dest)
+                    urllib.urlretrieve(url, dest)
         return result
 
     @staticmethod
