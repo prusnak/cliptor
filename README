@@ -5,3 +5,21 @@ Requirements:
 
 * PyQt4      (package python-qt4-devel)
 * Python XML (package python-xml)
+
+Cliptor API
+-----------
+
+GET http://cliptor.gk2.sk/api/match/
+
+params:
+* type = [ "json" | "xml" ], default "xml"
+* streamid = string (e.g. "yt_oP8SrlbpJ5A"), mandatory
+
+returns:
+* stream1 = string (e.g. "yt_oP8SrlbpJ5A")
+* speed1  = float (e.g. 1.03)
+* time1   = float (e.g. 214.34 seconds)
+* stream2 = string (e.g. yt_laIr_d0hFB8")
+* speed2  = float (e.g. 0.97)
+* time2   = float (e.g. 12.98 seconds)
+* trans   = float (e.g. 2.15 seconds)

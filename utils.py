@@ -94,11 +94,11 @@ class Utils():
                 'length': length,
                 'rating': rating,
                 'views': views,
-                'thumbs': [ (THUMBDIR +'%s_%d.jpg') % (vid, i) for i in range(1,4) ]
+                'thumbs': [ (THUMBDIR +'yt_%s_%d.jpg') % (vid, i) for i in range(1,4) ]
             })
             for i in range(1,2):
                 url = 'http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i)
-                dest = (THUMBDIR +'%s_%d.jpg') % (vid, i)
+                dest = (THUMBDIR +'yt_%s_%d.jpg') % (vid, i)
                 if not os.path.exists( dest ):
                     print 'GET %s -> %s' % (url, dest)
                     urllib.urlretrieve(url, dest)
