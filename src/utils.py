@@ -1,6 +1,7 @@
 import sys
 import os
 import urllib
+import urllib2
 from xml.dom import minidom
 from PyQt4 import QtGui
 from datetime import datetime
@@ -42,7 +43,7 @@ class Utils():
         params = urllib.urlencode({'ds': 'yt', 'output': 'toolbar', 'q': s})
         url = 'http://suggestqueries.google.com/complete/search?%s' % params
         print 'GET %s' % url
-        sock = urllib.urlopen( url )
+        sock = urllib2.urlopen( url, timeout = 1 )
         xml = sock.read()
         sock.close()
         dom = minidom.parseString(xml)
@@ -60,7 +61,7 @@ class Utils():
         params = urllib.urlencode({'max-results': SEARCHRESULTS, 'q': s})
         url = 'http://gdata.youtube.com/feeds/api/videos?%s' % params
         print 'GET %s' % url
-        sock = urllib.urlopen( url )
+        sock = urllib2.urlopen( url, timeout = 30 )
         xml = sock.read()
         sock.close()
         dom = minidom.parseString(xml)

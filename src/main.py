@@ -46,10 +46,10 @@ class MainWindow(QtGui.QMainWindow):
 
     def editSearch_textChanged(self, s):
         self.ui.scrollResult.setVisible(False)
-        self.ui.listSearch.setVisible( s != '' )
         self.ui.listSearch.clear()
         for i in Utils.getSuggestions(s):
             self.ui.listSearch.addItem(i)
+        self.ui.listSearch.setVisible( s != '' and self.ui.listSearch.count() > 0 )
 
     def buttonSearch_clicked(self):
         s = self.ui.editSearch.text()
