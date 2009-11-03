@@ -30,7 +30,6 @@ quality = [
 ]
 
 try:
-    print CONFDIR, CACHEDIR, THUMBDIR
     os.makedirs(CONFDIR)
     os.makedirs(THUMBDIR)
 except:
@@ -107,5 +106,5 @@ class Utils():
     @staticmethod
     def getIcon(s):
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/" + s + ".png"))
+        icon.addPixmap(QtGui.QPixmap(":/images/" + s + ".png"))
         return icon

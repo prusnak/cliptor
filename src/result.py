@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from PyQt4 import QtCore, QtGui
-from ui_result import Ui_widgetResult
+from result_ui import Ui_widgetResult
 from datetime import timedelta, datetime
 
 class WidgetResult(QtGui.QWidget):
 
-    def __init__(self, parent = None):
+    def __init__(self, parent, listA, listB):
         QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_widgetResult()
         self.ui.setupUi(self)
         self.vid = None
         self.title = None
+        self.listA = listA
+        self.listB = listB
         self.connect(self.ui.buttonA, QtCore.SIGNAL('clicked()'), self.buttonA_clicked )
         self.connect(self.ui.buttonB, QtCore.SIGNAL('clicked()'), self.buttonB_clicked )
 

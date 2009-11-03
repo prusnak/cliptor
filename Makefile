@@ -1,18 +1,39 @@
 NAME=cliptor
 
-all: $(NAME) ui_main.py ui_result.py ui_output.py main.py main_rc.py
+all: bin/$(NAME) bin/images bin/main_ui.py bin/result_ui.py bin/output_ui.py bin/main_rc.py bin/main.py bin/output.py bin/result.py bin/utils.py
 
-ui_main.py: main.ui
-	pyuic4 main.ui -o ui_main.py
+bin/$(NAME): src/$(NAME)
+	cp src/$(NAME) bin/$(NAME)
 
-ui_result.py: result.ui
-	pyuic4 result.ui -o ui_result.py
+bin/images: src/images
+	cp -r src/images bin/images
 
-ui_output.py: output.ui
-	pyuic4 output.ui -o ui_output.py
+bin/main.py: src/main.py
+	cp src/main.py bin/main.py
 
-main_rc.py: main.qrc
-	pyrcc4 main.qrc -o main_rc.py
+bin/output.py: src/output.py
+	cp src/output.py bin/output.py
+
+bin/result.py: src/result.py
+	cp src/result.py bin/result.py
+
+bin/utils.py: src/utils.py
+	cp src/utils.py bin/utils.py
+
+bin/main_ui.py: src/main.ui
+	pyuic4 src/main.ui -o bin/main_ui.py
+
+bin/result_ui.py: src/result.ui
+	pyuic4 src/result.ui -o bin/result_ui.py
+
+bin/output_ui.py: src/output.ui
+	pyuic4 src/output.ui -o bin/output_ui.py
+
+bin/main_rc.py: src/main.qrc
+	pyrcc4 src/main.qrc -o bin/main_rc.py
 
 clean:
-	rm -f ui_*.py main_rc.py *.pyc *.pyo
+	rm -rf bin/*
+
+run: all
+	bin/cliptor

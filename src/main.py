@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt4 import QtCore, QtGui
-from ui_main import Ui_MainWindow
+from main_ui import Ui_MainWindow
 from result import WidgetResult
 from utils import Utils, SEARCHRESULTS
 
@@ -28,14 +28,14 @@ class MainWindow(QtGui.QMainWindow):
         self.connect(self.ui.buttonCueA   , QtCore.SIGNAL('clicked()')                        , self.buttonCueA_clicked       )
         self.connect(self.ui.buttonCueB   , QtCore.SIGNAL('clicked()')                        , self.buttonCueB_clicked       )
         for i in range(0, SEARCHRESULTS):
-            self.resultWidgets.append( WidgetResult(self.ui.scrollResultContents) )
+            self.resultWidgets.append( WidgetResult(self.ui.scrollResultContents, self.ui.listA, self.ui.listB) )
             self.resultWidgets[i].setGeometry(QtCore.QRect(0, i * self.resultWidgets[i].height(), self.resultWidgets[i].width(), self.resultWidgets[i].height()));
             self.resultWidgets[i].setObjectName( "result" + str(i) )
 
     def actionAbout_triggered(self):
         box = QtGui.QMessageBox()
         box.setStandardButtons(QtGui.QMessageBox.Ok)
-        box.setIconPixmap( QtGui.QPixmap( ':/icons/cliptor.png' ) )
+        box.setIconPixmap( QtGui.QPixmap( ':/images/cliptor.png' ) )
         box.setText( u'Cliptor\n\nCopyright (c) 2009\n\nPavol Rusnák' )
         box.setWindowTitle('About Cliptor')
         box.exec_()

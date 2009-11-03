@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="main.qrc">
-    <normaloff>:/icons/cliptor.png</normaloff>:/icons/cliptor.png</iconset>
+    <normaloff>:/images/cliptor.png</normaloff>:/images/cliptor.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="frameA">
@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="pixmap">
-     <pixmap resource="main.qrc">:/icons/ntsc.png</pixmap>
+     <pixmap resource="main.qrc">:/images/ntsc.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="frameB">
@@ -53,7 +53,7 @@
      </rect>
     </property>
     <property name="pixmap">
-     <pixmap resource="main.qrc">:/icons/ntsc.png</pixmap>
+     <pixmap resource="main.qrc">:/images/ntsc.png</pixmap>
     </property>
    </widget>
    <widget class="QListWidget" name="listA">
@@ -83,7 +83,7 @@
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
-      <normaloff>:/icons/cue-set.png</normaloff>:/icons/cue-set.png</iconset>
+      <normaloff>:/images/cue-set.png</normaloff>:/images/cue-set.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -106,7 +106,7 @@
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
-      <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
+      <normaloff>:/images/play.png</normaloff>:/images/play.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -255,7 +255,7 @@
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
-      <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
+      <normaloff>:/images/play.png</normaloff>:/images/play.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -281,7 +281,7 @@
     </property>
     <property name="icon">
      <iconset resource="main.qrc">
-      <normaloff>:/icons/cue-set.png</normaloff>:/icons/cue-set.png</iconset>
+      <normaloff>:/images/cue-set.png</normaloff>:/images/cue-set.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -575,7 +575,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="main.qrc">
-     <normaloff>:/icons/cliptor16.png</normaloff>:/icons/cliptor16.png</iconset>
+     <normaloff>:/images/cliptor16.png</normaloff>:/images/cliptor16.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About</string>
@@ -584,7 +584,7 @@
   <action name="actionQuit">
    <property name="icon">
     <iconset resource="main.qrc">
-     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+     <normaloff>:/images/exit.png</normaloff>:/images/exit.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Quit</string>

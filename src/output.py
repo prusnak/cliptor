@@ -1,5 +1,5 @@
 from PyQt4 import QtGui
-from ui_output import Ui_WindowOutput
+from output_ui import Ui_WindowOutput
 
 class WindowOutput(QtGui.QMainWindow):
 

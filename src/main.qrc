@@ -1,0 +1,16 @@
+<RCC>
+  <qresource>
+    <file>images/cliptor.png</file>
+    <file>images/cliptor16.png</file>
+    <file>images/cue-go.png</file>
+    <file>images/cue-set.png</file>
+    <file>images/edit-clear.png</file>
+    <file>images/edit-find.png</file>
+    <file>images/exit.png</file>
+    <file>images/ntsc.png</file>
+    <file>images/pause.png</file>
+    <file>images/play.png</file>
+    <file>images/rating0.png</file>
+    <file>images/rating1.png</file>
+  </qresource>
+</RCC>
