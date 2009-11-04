@@ -1,6 +1,7 @@
 NAME=cliptor
 
 all: bin/$(NAME) bin/images bin/main_ui.py bin/result_ui.py bin/output_ui.py bin/main_rc.py bin/main.py bin/output.py bin/result.py bin/utils.py
+	python -c 'import compileall; compileall.compile_dir("bin")'
 
 bin/$(NAME): src/$(NAME)
 	cp src/$(NAME) bin/$(NAME)

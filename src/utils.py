@@ -86,7 +86,7 @@ class Utils():
             else:
                 views = 0
             result.append({
-                'vid': vid,
+                'vid': 'yt_%s' % vid,
                 'author': author,
                 'published': published,
                 'title': title,

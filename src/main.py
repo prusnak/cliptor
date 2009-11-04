@@ -27,6 +27,8 @@ class MainWindow(QtGui.QMainWindow):
         self.connect(self.ui.buttonPlayB  , QtCore.SIGNAL('clicked()')                        , self.buttonPlayB_clicked      )
         self.connect(self.ui.buttonCueA   , QtCore.SIGNAL('clicked()')                        , self.buttonCueA_clicked       )
         self.connect(self.ui.buttonCueB   , QtCore.SIGNAL('clicked()')                        , self.buttonCueB_clicked       )
+        self.connect(self.ui.listA        , QtCore.SIGNAL('itemActivated(QListWidgetItem *)') , self.listA_itemActivated      )
+        self.connect(self.ui.listB        , QtCore.SIGNAL('itemActivated(QListWidgetItem *)') , self.listB_itemActivated      )
         for i in range(0, SEARCHRESULTS):
             self.resultWidgets.append( WidgetResult(self.ui.scrollResultContents, self.ui.listA, self.ui.listB) )
             self.resultWidgets[i].setGeometry(QtCore.QRect(0, i * self.resultWidgets[i].height(), self.resultWidgets[i].width(), self.resultWidgets[i].height()));
@@ -79,3 +81,9 @@ class MainWindow(QtGui.QMainWindow):
 
     def buttonCueB_clicked(self):
         self.ui.buttonCueB.setIcon( Utils.getIcon('cue-go') )
+
+    def listA_itemActivated(self, i):
+        print 'A -> %s' % i.data(QtCore.Qt.UserRole).toString()
+
+    def listB_itemActivated(self, i):
+        print 'B -> %s' % i.data(QtCore.Qt.UserRole).toString()

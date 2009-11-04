@@ -18,12 +18,14 @@ class WidgetResult(QtGui.QWidget):
         self.connect(self.ui.buttonB, QtCore.SIGNAL('clicked()'), self.buttonB_clicked )
 
     def buttonA_clicked(self):
-        self.listA.addItem(self.title)
-        # TODO: put self.vid somewhere :-)
+        i = QtGui.QListWidgetItem(self.title)
+        i.setData(QtCore.Qt.UserRole, self.vid)
+        self.listA.addItem(i)
 
     def buttonB_clicked(self):
-        self.listB.addItem(self.title)
-        # TODO: put self.vid somewhere :-)
+        i = QtGui.QListWidgetItem(self.title)
+        i.setData(QtCore.Qt.UserRole, self.vid)
+        self.listB.addItem(i)
 
     def setData(self, data):
         if data == None:
