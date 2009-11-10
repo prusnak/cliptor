@@ -109,3 +109,35 @@ class Utils():
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/images/" + s + ".png"))
         return icon
+
+    @staticmethod
+    def getStreams(s):
+        if s.startswith('yt_'):
+            params = urllib.urlencode({'v': s[3:], 'feature': 'youtube_gdata'})
+            url = 'http://www.youtube.com/watch?%s' % params
+            print 'GET %s' % url
+            sock = urllib2.urlopen( url, timeout = 30 )
+            for line in sock:
+                if line.find("'SWF_ARGS':") < 0:
+                    continue
+                pos1 = line.find('"fmt_url_map": ')
+                if pos1 < 0:
+                    continue
+                pos1 += 14
+                pos2 = line.find(',', pos1)
+                if pos2 < 0:
+                    continue
+                line = urllib.unquote( line[pos1:pos2].strip(' "') )
+                result = {}
+                for d in line.split(','):
+                    if d.startswith('22|'):
+                        result['hd720'] = d[3:]
+                    elif d.startswith('35|'):
+                        result['large'] = d[3:]
+                    elif d.startswith('34|'):
+                        result['medium'] = d[3:]
+                    elif d.startswith('5|'):
+                        result['small'] = d[2:]
+            sock.close()
+            return result
+        return []

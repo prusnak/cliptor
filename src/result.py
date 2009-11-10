@@ -3,6 +3,7 @@
 from PyQt4 import QtCore, QtGui
 from result_ui import Ui_widgetResult
 from datetime import timedelta, datetime
+from utils import Utils
 
 class WidgetResult(QtGui.QWidget):
 
@@ -20,11 +21,15 @@ class WidgetResult(QtGui.QWidget):
     def buttonA_clicked(self):
         i = QtGui.QListWidgetItem(self.title)
         i.setData(QtCore.Qt.UserRole, self.vid)
+        streams = Utils.getStreams(self.vid)
+        i.setData(QtCore.Qt.UserRole+1, streams)
         self.listA.addItem(i)
 
     def buttonB_clicked(self):
         i = QtGui.QListWidgetItem(self.title)
         i.setData(QtCore.Qt.UserRole, self.vid)
+        streams = Utils.getStreams(self.vid)
+        i.setData(QtCore.Qt.UserRole+1, streams)
         self.listB.addItem(i)
 
     def setData(self, data):

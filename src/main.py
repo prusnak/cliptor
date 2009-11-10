@@ -83,7 +83,15 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.buttonCueB.setIcon( Utils.getIcon('cue-go') )
 
     def listA_itemActivated(self, i):
-        print 'A -> %s' % i.data(QtCore.Qt.UserRole).toString()
+        vid = i.data(QtCore.Qt.UserRole).toString()
+        streams = i.data(QtCore.Qt.UserRole+1).toPyObject()
+        print 'A -> %s' % vid
+        for (k,v) in streams.iteritems():
+            print '(%s) %s' % (k,v)
 
     def listB_itemActivated(self, i):
-        print 'B -> %s' % i.data(QtCore.Qt.UserRole).toString()
+        vid = i.data(QtCore.Qt.UserRole).toString()
+        streams = i.data(QtCore.Qt.UserRole+1).toPyObject()
+        print 'B -> %s' % vid
+        for (k,v) in streams.iteritems():
+            print '(%s) %s' % (k,v)
