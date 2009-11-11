@@ -21,6 +21,7 @@ CONFDIR = CONFDIR + '/cliptor/'
 CACHEDIR = CACHEDIR + '/cliptor/'
 
 THUMBDIR = CACHEDIR + 'thumbnails/'
+VIDEODIR = CACHEDIR + 'video/'
 SEARCHRESULTS = 20
 
 quality = [
@@ -32,7 +33,14 @@ quality = [
 
 try:
     os.makedirs(CONFDIR)
+except:
+    pass
+try:
     os.makedirs(THUMBDIR)
+except:
+    pass
+try:
+    os.makedirs(VIDEODIR)
 except:
     pass
 
