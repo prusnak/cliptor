@@ -16,7 +16,7 @@
      <x>10</x>
      <y>10</y>
      <width>941</width>
-     <height>92</height>
+     <height>93</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="layoutH1">
@@ -40,8 +40,11 @@
         <height>16777215</height>
        </size>
       </property>
-      <property name="text">
-       <string/>
+      <property name="pixmap">
+       <pixmap resource="main.qrc">:/images/nothumb.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>

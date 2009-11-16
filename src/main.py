@@ -3,7 +3,7 @@
 from PyQt4 import QtCore, QtGui
 from main_ui import Ui_MainWindow
 from result import WidgetResult
-from utils import Utils, SEARCHRESULTS
+from utils import Utils, SEARCHRESULTS, QUALITY
 
 class MainWindow(QtGui.QMainWindow):
 
@@ -85,13 +85,15 @@ class MainWindow(QtGui.QMainWindow):
     def listA_itemActivated(self, i):
         vid = i.data(QtCore.Qt.UserRole).toString()
         streams = i.data(QtCore.Qt.UserRole+1).toPyObject()
-        print 'A -> %s' % vid
-        for (k,v) in streams.iteritems():
-            print '(%s) %s' % (k,v)
+        for q in QUALITY:
+            if streams.has_key(q):
+                Utils.downloadStream( vid, q, streams[q] )
+                return
 
     def listB_itemActivated(self, i):
         vid = i.data(QtCore.Qt.UserRole).toString()
         streams = i.data(QtCore.Qt.UserRole+1).toPyObject()
-        print 'B -> %s' % vid
-        for (k,v) in streams.iteritems():
-            print '(%s) %s' % (k,v)
+        for q in QUALITY:
+            if streams.has_key(q):
+                Utils.downloadStream( vid, q, streams[q] )
+                return

@@ -3,7 +3,7 @@ import os
 import urllib
 import urllib2
 from xml.dom import minidom
-from PyQt4 import QtGui
+from PyQt4 import QtCore, QtGui
 from datetime import datetime
 
 HOMEDIR = os.getenv('HOME')
@@ -24,11 +24,13 @@ THUMBDIR = CACHEDIR + 'thumbnails/'
 VIDEODIR = CACHEDIR + 'video/'
 SEARCHRESULTS = 20
 
-quality = [
-    'small',      # <  640 x 360
-    'medium',     # >= 640 x 360
-    'large',      # >= 854 x 480
-    'hd720'       # >= 1280 x 720
+# also serves as hardcoded priority list atm
+
+QUALITY = [
+    QtCore.QString('hd720'),      # >= 1280 x 720
+    QtCore.QString('large'),      # >= 854 x 480
+    QtCore.QString('medium'),     # >= 640 x 360
+    QtCore.QString('small')       # <  640 x 360
 ]
 
 try:
@@ -101,15 +103,8 @@ class Utils():
                 'desc': desc,
                 'length': length,
                 'rating': rating,
-                'views': views,
-                'thumbs': [ (THUMBDIR +'yt_%s_%d.jpg') % (vid, i) for i in range(1,4) ]
+                'views': views
             })
-            for i in range(1,2):
-                url = 'http://i.ytimg.com/vi/%s/%d.jpg' % (vid, i)
-                dest = (THUMBDIR +'yt_%s_%d.jpg') % (vid, i)
-                if not os.path.exists( dest ):
-                    print 'GET %s -> %s' % (url, dest)
-                    urllib.urlretrieve(url, dest)
         return result
 
     @staticmethod
@@ -119,9 +114,9 @@ class Utils():
         return icon
 
     @staticmethod
-    def getStreams(s):
-        if s.startswith('yt_'):
-            params = urllib.urlencode({'v': s[3:], 'feature': 'youtube_gdata'})
+    def getStreams(vid):
+        if vid.startswith('yt_'):
+            params = urllib.urlencode({'v': vid[3:], 'feature': 'youtube_gdata'})
             url = 'http://www.youtube.com/watch?%s' % params
             print 'GET %s' % url
             sock = urllib2.urlopen( url, timeout = 30 )
@@ -149,3 +144,23 @@ class Utils():
             sock.close()
             return result
         return []
+
+    @staticmethod
+    def downloadThumb(vid):
+        if vid.startswith('yt_'):
+            dest = (THUMBDIR +'%s.jpg') % vid
+            if not os.path.exists( dest ):
+                url = 'http://i.ytimg.com/vi/%s/default.jpg' % vid[3:]
+                print 'GET %s -> %s' % (url, dest)
+                urllib.urlretrieve(url, dest)
+            return
+
+
+    @staticmethod
+    def downloadStream(vid, qual, url):
+        dest = (VIDEODIR + '%s.%s') % (vid, qual)
+        if not os.path.exists( dest ):
+            print 'GET %s -> %s' % (url, dest)
+            urllib.urlretrieve(str(url), dest)
+        os.system("mplayer '%s'" % url)
+        return

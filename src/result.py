@@ -3,7 +3,7 @@
 from PyQt4 import QtCore, QtGui
 from result_ui import Ui_widgetResult
 from datetime import timedelta, datetime
-from utils import Utils
+from utils import Utils, THUMBDIR
 
 class WidgetResult(QtGui.QWidget):
 
@@ -81,5 +81,10 @@ class WidgetResult(QtGui.QWidget):
         painter.drawPixmap(ratingwidth,0,rate0,ratingwidth,0,80-ratingwidth,16)
         painter.end()
         self.ui.imageRating.setPixmap(rating)
-        thumb = QtGui.QPixmap( data['thumbs'][0] )
+        thumb = QtGui.QPixmap(':icons/nothumb.png')
+        self.ui.imageThumb.setPixmap(thumb)
+        # TODO: put download in separate thread + set callback to set image
+        Utils.downloadThumb(self.vid)
+        # TODO: the following two line should be set as a callback when download above is finished
+        thumb = QtGui.QPixmap( THUMBDIR + self.vid + '.jpg' )
         self.ui.imageThumb.setPixmap(thumb)
