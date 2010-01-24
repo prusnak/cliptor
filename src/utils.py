@@ -27,9 +27,10 @@ SEARCHRESULTS = 20
 # also serves as hardcoded priority list atm
 
 QUALITY = [
-    QtCore.QString('hd720'),      # >= 1280 x 720
-    QtCore.QString('large'),      # >= 854 x 480
-    QtCore.QString('medium'),     # >= 640 x 360
+    QtCore.QString('1080p'),      # >= 1920 x 1080
+    QtCore.QString('720p'),      # >= 1280 x 720
+    QtCore.QString('480p'),      # >= 854 x 480
+    QtCore.QString('360p'),     # >= 640 x 360
     QtCore.QString('small')       # <  640 x 360
 ]
 
@@ -133,12 +134,14 @@ class Utils():
                 line = urllib.unquote( line[pos1:pos2].strip(' "') )
                 result = {}
                 for d in line.split(','):
+                    if d.startswith('37|'):
+                        result['1080p'] = d[3:]
                     if d.startswith('22|'):
-                        result['hd720'] = d[3:]
+                        result['720p'] = d[3:]
                     elif d.startswith('35|'):
-                        result['large'] = d[3:]
+                        result['480p'] = d[3:]
                     elif d.startswith('34|'):
-                        result['medium'] = d[3:]
+                        result['360p'] = d[3:]
                     elif d.startswith('5|'):
                         result['small'] = d[2:]
             sock.close()
