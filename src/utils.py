@@ -30,11 +30,11 @@ SEARCHRESULTS = 20
 # also serves as hardcoded priority list atm
 
 QUALITY = [
-    QtCore.QString('1080p'),      # >= 1920 x 1080
-    QtCore.QString('720p'),      # >= 1280 x 720
-    QtCore.QString('480p'),      # >= 854 x 480
-    QtCore.QString('360p'),     # >= 640 x 360
-    QtCore.QString('small')       # <  640 x 360
+    '1080p',  # >= 1920 x 1080
+    '720p',   # >= 1280 x 720
+    '480p',   # >= 854 x 480
+    '360p',   # >= 640 x 360
+    'small'   # <  640 x 360
 ]
 
 try:
