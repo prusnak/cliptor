@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
 import sys
-from PyQt4 import QtGui
+try:
+    from PyQt4 import QtGui
+except:
+    from PySide import QtGui
 from main import MainWindow
 
 if __name__ == "__main__":

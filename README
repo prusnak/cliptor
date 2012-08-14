@@ -3,5 +3,7 @@ Cliptor
 
 Requirements:
 
-* PyQt4      (package python-qt4-devel)
 * Python XML (package python-xml)
+* PyQt4      (package python-qt4-devel)
+  - or -
+* PySide

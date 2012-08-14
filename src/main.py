@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from PyQt4 import QtCore, QtGui
+try:
+    from PyQt4 import QtCore, QtGui
+except:
+    from PySide import QtCore, QtGui
 from main_ui import Ui_MainWindow
 from result import WidgetResult
 from utils import Utils, SEARCHRESULTS, QUALITY

@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from PyQt4 import QtCore, QtGui
+try:
+    from PyQt4 import QtCore, QtGui
+except:
+    from PySide import QtCore, QtGui
 from result_ui import Ui_widgetResult
 from datetime import timedelta, datetime
 from utils import Utils, THUMBDIR
