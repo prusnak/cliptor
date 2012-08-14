@@ -1,5 +1,10 @@
 NAME=cliptor
 
+# pyuic4 or pyside-uic
+PYUIC=pyuic4
+# pyrcc4 or pyside-rcc
+PYRCC=pyrcc4
+
 all: bin/$(NAME) bin/images bin/main_ui.py bin/result_ui.py bin/output_ui.py bin/main_rc.py bin/main.py bin/output.py bin/result.py bin/utils.py
 	python -c 'import compileall; compileall.compile_dir("bin")'
 
@@ -23,16 +28,16 @@ bin/utils.py: src/utils.py
 	cp src/utils.py bin/utils.py
 
 bin/main_ui.py: src/main.ui
-	pyuic4 src/main.ui -o bin/main_ui.py
+	$(PYUIC) src/main.ui -o bin/main_ui.py
 
 bin/result_ui.py: src/result.ui
-	pyuic4 src/result.ui -o bin/result_ui.py
+	$(PYUIC) src/result.ui -o bin/result_ui.py
 
 bin/output_ui.py: src/output.ui
-	pyuic4 src/output.ui -o bin/output_ui.py
+	$(PYUIC) src/output.ui -o bin/output_ui.py
 
 bin/main_rc.py: src/main.qrc
-	pyrcc4 src/main.qrc -o bin/main_rc.py
+	$(PYRCC) src/main.qrc -o bin/main_rc.py
 
 clean:
 	rm -rf bin/*
