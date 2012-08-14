@@ -15,7 +15,7 @@ class MainWindow(QtGui.QMainWindow):
     resultWidgets = []
 
     def __init__(self, parent = None):
-        QtGui.QWidget.__init__(self, parent)
+        super(MainWindow, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.listSearch.setVisible(False)
