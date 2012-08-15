@@ -1,7 +1,4 @@
-try:
-    from PyQt4 import QtGui
-except:
-    from PySide import QtGui
+from PySide import QtGui
 from output_ui import Ui_WindowOutput
 
 class WindowOutput(QtGui.QMainWindow):

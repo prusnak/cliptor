@@ -3,10 +3,7 @@ import os
 import urllib
 import urllib2
 from xml.dom import minidom
-try:
-    from PyQt4 import QtCore, QtGui
-except:
-    from PySide import QtCore, QtGui
+from PySide import QtCore, QtGui
 from datetime import datetime
 
 HOMEDIR = os.getenv('HOME')
